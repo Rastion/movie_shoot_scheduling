@@ -1,0 +1,39 @@
+{
+    "entry_point": "movie_shoot_scheduling_problem:MovieShootSchedulingProblem",
+    "default_params": {
+      "instance_file": "instances/movie5.txt"
+    },
+    "problem_type": "Movie Shoot Scheduling",
+    "description": "In this simplified Movie Shoot Scheduling Problem, a movie consists of a set of scenes, each with a fixed duration and a given location, and a set of actors with daily costs. Precedence constraints between scenes must be respected. The objective is to find a shooting order (a permutation of scenes) that minimizes the total cost, which is the sum of the location cost (each additional visit to a location beyond the first incurs its fixed cost) and the actor cost (actors are paid for all days between their first and last scene, and extra days beyond the actual scene durations incur additional cost).",
+    "keywords": [
+      "movie scheduling",
+      "precedence constraints",
+      "location cost",
+      "actor cost",
+      "scheduling"
+    ],
+    "data_format": {
+      "instance_file": {
+        "format": "A text file with the following data in order: number of actors, number of scenes, number of locations, number of precedences; then a list of actor daily costs; a list of location costs; a list of scene durations; a list of scene locations (one per scene); for each scene, a list indicating the presence (0 or 1) of each actor; and finally, a list of precedence pairs (each pair consists of two scene indices)."
+      }
+    },
+    "decision_variables": {
+      "shoot_order": {
+        "type": "list of int",
+        "description": "A permutation of scene indices (0-indexed) representing the shooting order."
+      }
+    },
+    "objective": {
+      "type": "minimization",
+      "function": "Total Cost = Location Cost + Actor Cost",
+      "description": "Minimize the total cost where the location cost is computed as the sum over locations of (location cost × (number of visits - 1)) and the actor cost is computed as the sum over actors of (number of paid days minus actual working days) multiplied by the actor's daily cost."
+    },
+    "solution_representation": "A list of scene indices (0-indexed) representing the shooting order.",
+    "compatible_optimizers": [
+      "genetic_algorithm",
+      "simulated_annealing",
+      "particle_swarm",
+      "tabu_search"
+    ]
+  }
+  
