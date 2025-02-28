@@ -3,14 +3,17 @@
     "default_params": {
       "instance_file": "instances/movie5.txt"
     },
-    "problem_type": "Movie Shoot Scheduling",
+    "creator": "Rastion",
+    "type": "problem",
+    "problem_name": "Moovie shoot scheduling problem",
     "description": "In this simplified Movie Shoot Scheduling Problem, a movie consists of a set of scenes, each with a fixed duration and a given location, and a set of actors with daily costs. Precedence constraints between scenes must be respected. The objective is to find a shooting order (a permutation of scenes) that minimizes the total cost, which is the sum of the location cost (each additional visit to a location beyond the first incurs its fixed cost) and the actor cost (actors are paid for all days between their first and last scene, and extra days beyond the actual scene durations incur additional cost).",
+    "link_to_dataset": "https://github.com/Rastion/movie_shoot_scheduling/blob/main/instances/movie5.txt",
     "keywords": [
       "movie scheduling",
       "precedence constraints",
       "location cost",
       "actor cost",
-      "scheduling"
+      "production-scheduling"
     ],
     "data_format": {
       "instance_file": {
@@ -29,11 +32,8 @@
       "description": "Minimize the total cost where the location cost is computed as the sum over locations of (location cost × (number of visits - 1)) and the actor cost is computed as the sum over actors of (number of paid days minus actual working days) multiplied by the actor's daily cost."
     },
     "solution_representation": "A list of scene indices (0-indexed) representing the shooting order.",
-    "compatible_optimizers": [
-      "genetic_algorithm",
-      "simulated_annealing",
-      "particle_swarm",
-      "tabu_search"
+    "formulations": [
+      ""
     ]
   }
   
